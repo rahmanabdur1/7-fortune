@@ -60,12 +60,12 @@ const Testimonial = () => {
           </div>
           <div className='cards'>
             <Slider {...settings}>
-              {testimonial.map((user) => (
-                <div>
+              {testimonial.map((user, index) => (
+                <div key={index}>
                   <div className='card'>
                     <div className='image'>
                       <div className='img'>
-                        <img src={user.cover} alt='' />
+                        <img src={user.cover} alt={user.name} />
                       </div>
                       <div className='img-text'>
                         <h3>{user.name}</h3>
