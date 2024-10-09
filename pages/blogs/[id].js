@@ -8,7 +8,14 @@ import React from "react"
 const SinglePost = () => {
   const router = useRouter()
   const { id } = router.query
-  const post = blogdata.find((post) => post.id === parseInt(id))
+
+  // Find the post only if 'id' is available and valid
+  const post = id ? blogdata.find((post) => post.id === parseInt(id)) : null
+
+  // If no post is found, or if 'id' isn't available yet, return null or a loading message
+  if (!post) {
+    return <div>Loading...</div>
+  }
 
   return (
     <>
